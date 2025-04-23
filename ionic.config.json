@@ -1,0 +1,7 @@
+{
+  "name": "webphone-ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
