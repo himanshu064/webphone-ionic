@@ -46,13 +46,16 @@ export const Login: React.FC = () => {
 
   return (
     <IonPage>
-      <IonContent className="bg-gradient-to-br from-gray-50 to-gray-200">
+      <IonContent
+        className="bg-gradient-to-br from-gray-50 to-gray-200"
+        forceOverscroll={false}
+      >
         <div className="flex flex-col h-full items-center justify-center px-4 py-8">
           <div className="flex flex-col items-center mb-4">
             <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mb-2">
               <IonIcon icon={call} className="text-4xl text-blue-600" />
             </div>
-            <h1 className="text-3xl font-bold text-blue-600">
+            <h1 className="text-3xl font-semibold text-blue-600">
               Connexio Webphone
             </h1>
           </div>
@@ -61,7 +64,7 @@ export const Login: React.FC = () => {
             <IonCardContent className="p-6">
               {/* Logo and Title */}
 
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-600 mb-6 text-base">
                 Welcome to the Connexio webphone. To access your account, please
                 click the button below to log in through our secure external
                 authentication service.
