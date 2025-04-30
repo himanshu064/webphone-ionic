@@ -28,7 +28,7 @@ export const Keypad: React.FC<KeypadProps> = ({ onNumberPress }) => {
           className="flex flex-col items-center justify-center focus-visible:outline-0"
           onClick={() => onNumberPress(button.number)}
         >
-          <span className="text-3xl md:text-4xl font-light text-purple-600">
+          <span className="text-4xl md:text-5xl font-semibold text-purple-600">
             {button.number}
           </span>
           <span className="text-xs text-gray-500 mt-1 uppercase">
