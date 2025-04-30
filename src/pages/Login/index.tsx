@@ -19,7 +19,7 @@ import { useAuth } from "@/context/auth/hooks";
 
 const authBaseUrl = "https://portal.connx.cloud";
 
-const Login: React.FC = () => {
+export const Login: React.FC = () => {
   const router = useIonRouter();
   const { setIsAuthenticated } = useAuth();
   // Handler for the external login button
@@ -126,5 +126,3 @@ const Login: React.FC = () => {
     </IonPage>
   );
 };
-
-export default Login;

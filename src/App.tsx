@@ -31,9 +31,8 @@ import "@ionic/react/css/palettes/dark.system.css";
 
 /* Theme variables */
 import "./theme/variables.css";
-import LoginPage from "@/pages/Login";
-import BottomTabs from "@/components/BottomTabs";
-import CallScreen from "@/pages/CallScreen";
+import { Login } from "@/pages";
+import { BottomTabs } from "@/components";
 
 setupIonicReact();
 
@@ -45,7 +44,7 @@ const App: React.FC = () => (
           <Redirect to="/login" />
         </Route>
         <Route exact path="/login">
-          <LoginPage />
+          <Login />
         </Route>
 
         <Route path="/tabs">

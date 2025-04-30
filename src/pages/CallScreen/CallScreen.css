@@ -1,18 +1,3 @@
-/* Additional custom styles for the CallScreenPage */
-
-/* Add these styles to your global CSS or import this file in your CallScreenPage */
-
-/* For the keypad buttons */
-.keypad-button {
-  transition: all 0.2s ease;
-}
-
-.keypad-button:active {
-  transform: scale(0.95);
-  background-color: rgba(124, 58, 237, 0.1);
-  /* Light purple background on press */
-}
-
 /* For the call button pulse effect */
 .call-button {
   position: relative;
@@ -44,28 +29,4 @@
     transform: scale(1.1);
     opacity: 0;
   }
-}
-
-/* For the CallerID text display */
-.caller-id {
-  font-family: 'Roboto', sans-serif;
-  letter-spacing: 1.5px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-/* Quick Dial panel - can be implemented later */
-.quick-dial-container {
-  position: absolute;
-  left: 0;
-  height: 100%;
-  background-color: #f9fafb;
-  width: 80px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 20px;
-  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
-  z-index: 10;
 }

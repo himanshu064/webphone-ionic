@@ -5,9 +5,9 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import ExploreContainer from "@/components/ExploreContainer";
+import { ExploreContainer } from "@/components";
 
-const RecentCalls: React.FC = () => {
+export const RecentCalls: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
@@ -26,5 +26,3 @@ const RecentCalls: React.FC = () => {
     </IonPage>
   );
 };
-
-export default RecentCalls;
