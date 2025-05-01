@@ -1,4 +1,3 @@
-import { Redirect, Route } from "react-router-dom";
 import { IonApp, IonRouterOutlet, setupIonicReact } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 
@@ -31,8 +30,7 @@ import "@ionic/react/css/palettes/dark.system.css";
 
 /* Theme variables */
 import "./theme/variables.css";
-import { Login } from "@/pages";
-import { BottomTabs } from "@/components";
+import Router from "./router";
 
 setupIonicReact();
 
@@ -40,16 +38,7 @@ const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
-        <Route exact path="/">
-          <Redirect to="/login" />
-        </Route>
-        <Route exact path="/login">
-          <Login />
-        </Route>
-
-        <Route path="/tabs">
-          <BottomTabs basePath="/tabs" />
-        </Route>
+        <Router />
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
