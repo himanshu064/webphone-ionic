@@ -16,7 +16,8 @@
     "android:copy": "ionic capacitor copy android",
     "apk:dev": "cd android && ./gradlew assembleDebug",
     "apk:release": "cd android && ./gradlew assembleRelease",
-    "apk:run": "ionic cap run android"
+    "apk:run": "ionic cap run android --target pixel9p",
+    "open-android": "emulator -avd pixel9p"
   },
   "dependencies": {
     "@capacitor/android": "7.2.0",
