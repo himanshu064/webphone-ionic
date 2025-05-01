@@ -16,19 +16,25 @@ import {
   call,
 } from "ionicons/icons";
 import { useAuth } from "@/context/auth/hooks";
+import { ENV } from "@/env";
+import { AppRoutes } from "@/router/routes";
+import AuthService from '@/services/AuthService';
 
-const authBaseUrl = "https://portal.connx.cloud";
+const authBaseUrl = ENV.VITE_APP_BACKOFFICE;
 
 export const Login: React.FC = () => {
   const router = useIonRouter();
   const { setIsAuthenticated } = useAuth();
   // Handler for the external login button
-  const handleExternalLogin = () => {
-    window.open(
-      authBaseUrl + "/external-login?origin=" + window.location.origin,
-      "_blank"
-    );
-    window.open("external-login", "_blank");
+  const handleExternalLogin = async () => {
+    // alert(
+    //   `${authBaseUrl}${AppRoutes.ExternalLogin}?origin=${window.location.origin}`
+    // );
+    // window.open(
+    //   `${authBaseUrl}${AppRoutes.ExternalLogin}?origin=${window.location.origin}`,
+    //   "_blank"
+    // );
+    await AuthService.openExternalAuth();
   };
 
   useEffect(() => {
@@ -37,7 +43,7 @@ export const Login: React.FC = () => {
       if (event.origin === authBaseUrl && event.data === "reload") {
         window.removeEventListener("message", handleMessage); // Remove listener after handling
         setIsAuthenticated(true); // Set authentication state to true
-        router.push("/call", "forward", "replace");
+        router.push(AppRoutes.CallScreen, "forward", "replace");
       }
     };
 

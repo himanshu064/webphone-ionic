@@ -14,15 +14,16 @@
     "cap:sync_android": "ionic cap sync android",
     "cap:assets": "npx capacitor-assets generate",
     "android:copy": "ionic capacitor copy android",
-    "apk:dev": "cd android && ./gradlew assembleDebug",
-    "apk:release": "cd android && ./gradlew assembleRelease",
+    "apk:dev": "cd android && gradlew assembleDebug",
+    "apk:release": "cd android && gradlew assembleRelease",
     "apk:run": "ionic cap run android --target pixel9p",
-    "open-android": "emulator -avd pixel9p"
+    "android": "emulator -avd pixel9p"
   },
   "dependencies": {
     "@capacitor/android": "7.2.0",
     "@capacitor/app": "7.0.1",
     "@capacitor/assets": "^3.0.5",
+    "@capacitor/browser": "^7.0.1",
     "@capacitor/core": "7.2.0",
     "@capacitor/haptics": "7.0.1",
     "@capacitor/keyboard": "7.0.1",

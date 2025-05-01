@@ -23,9 +23,6 @@ export const BottomTabs = ({ basePath }: { basePath?: string }) => {
         <Route exact path={prependBasePath("/call", basePath)}>
           <CallScreen />
         </Route>
-        <Route exact path={prependBasePath("/call", basePath)}>
-          <CallScreen />
-        </Route>
         <Route exact path={prependBasePath("/contacts", basePath)}>
           <Contacts />
         </Route>
