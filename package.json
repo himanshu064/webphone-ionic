@@ -9,7 +9,14 @@
     "preview": "vite preview",
     "test.e2e": "cypress run",
     "test.unit": "vitest",
-    "lint": "eslint"
+    "lint": "eslint",
+    "ionic:build": "ionic build --prod",
+    "cap:sync_android": "ionic cap sync android",
+    "cap:assets": "npx capacitor-assets generate",
+    "android:copy": "ionic capacitor copy android",
+    "apk:dev": "cd android && ./gradlew assembleDebug",
+    "apk:release": "cd android && ./gradlew assembleRelease",
+    "apk:run": "ionic cap run android"
   },
   "dependencies": {
     "@capacitor/android": "7.2.0",
