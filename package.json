@@ -10,7 +10,7 @@
     "test.e2e": "cypress run",
     "test.unit": "vitest",
     "lint": "eslint",
-    "ionic:build": "ionic build --prod",
+    "ionic:prodbuild": "ionic build --prod",
     "cap:sync_android": "ionic cap sync android",
     "cap:assets": "npx capacitor-assets generate",
     "android:copy": "ionic capacitor copy android",
