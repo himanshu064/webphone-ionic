@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react";
 import { IonPage, IonContent, useIonRouter } from "@ionic/react";
 import { AppHeader } from "@/components";
+import { cn } from "@/lib/cn";
 
 type HeaderSize = "small" | "medium" | "large";
 
@@ -49,7 +50,7 @@ export const Page: React.FC<PageProps> = ({
       )}
 
       <IonContent
-        className={contentClassName}
+        className={cn(contentClassName, "mb-4")}
         forceOverscroll={forceOverscroll}
       >
         {children}

@@ -23,6 +23,8 @@ const axiosBackoffice: AxiosInstance = Axios.create({
     "Content-Type": "application/json",
     Accept: "application/json",
   },
+  withCredentials: true, // Include credentials (cookies) in requests
+  withXSRFToken: true, // Include XSRF token in requests
 });
 
 export { axios, axiosBackoffice };

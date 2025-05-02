@@ -8,6 +8,10 @@ const config: CapacitorConfig = {
     App: {
       scheme: "connexio",
     },
+    Keyboard: {
+      resizeOnFullScreen: false,
+      backgroundColor: "#ffffff",
+    },
   },
 };
 

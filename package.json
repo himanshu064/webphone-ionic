@@ -17,7 +17,8 @@
     "apk:dev": "cd android && gradlew assembleDebug",
     "apk:release": "cd android && gradlew assembleRelease",
     "apk:run": "ionic cap run android --target pixel9p",
-    "android": "emulator -avd pixel9p"
+    "android": "emulator -avd pixel9p",
+    "run:android": " ionic capacitor run android -l --external"
   },
   "dependencies": {
     "@capacitor/android": "7.2.0",
@@ -28,6 +29,8 @@
     "@capacitor/haptics": "7.0.1",
     "@capacitor/keyboard": "7.0.1",
     "@capacitor/status-bar": "7.0.1",
+    "@capawesome/capacitor-android-edge-to-edge-support": "^7.2.1",
+    "@hookform/resolvers": "^5.0.1",
     "@ionic/react": "^8.5.0",
     "@ionic/react-router": "^8.5.0",
     "@tailwindcss/vite": "^4.1.4",
@@ -38,11 +41,13 @@
     "ionicons": "^7.4.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "react-global-hook": "^2.0.0",
+    "react-hook-form": "^7.56.1",
+    "react-hooks-global-state": "^2.1.0",
     "react-router": "^5.3.4",
     "react-router-dom": "^5.3.4",
     "tailwind-merge": "^3.2.0",
-    "tailwindcss": "^4.1.4"
+    "tailwindcss": "^4.1.4",
+    "zod": "^3.24.3"
   },
   "devDependencies": {
     "@capacitor/cli": "7.2.0",
