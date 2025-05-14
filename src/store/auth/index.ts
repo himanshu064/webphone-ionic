@@ -1,11 +1,12 @@
 import { createStore } from "react-hooks-global-state";
-import { IAuthState, IUser, IAuthAction } from "@/store/auth/types";
+import { IAuthState, IUser, IAuthAction, IPbxUser } from "@/store/auth/types";
 import { authReducer } from "@/store/auth/reducers";
 
 const initialState: IAuthState = {
   loading: false,
   isAuthenticated: false,
   user: null,
+  pbxUser: null,
 };
 
 const { dispatch, useStoreState, getState } = createStore<
@@ -23,6 +24,9 @@ export const setUserAction = (user: IUser) => {
 export const setLoadingAction = (isLoading: boolean) => {
   dispatch({ type: "SET_LOADING", payload: isLoading });
 };
+export const setPbxUserAction = (user: IPbxUser) => {
+  dispatch({ type: "SET_PBX_USER", payload: user });
+};
 
 // Hooks
 export const useIsAuthenticated = () => {
@@ -33,6 +37,9 @@ export const useIsAuthenticated = () => {
 export const useUser = () => useStoreState("user");
 export const useLoading = () => useStoreState("loading");
 
+// pbx user
+export const usePbxUser = () => useStoreState("pbxUser");
+
 // Getters
 export const getIsAuthenticated = () => {
   const { isAuthenticated } = getState();
@@ -42,4 +49,9 @@ export const getIsAuthenticated = () => {
 export const getUser = () => {
   const { user } = getState();
   return user;
+};
+
+export const getPbxUser = () => {
+  const { pbxUser } = getState();
+  return pbxUser;
 };

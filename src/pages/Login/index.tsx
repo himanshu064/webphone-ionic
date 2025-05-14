@@ -76,7 +76,7 @@ export const Login: React.FC = () => {
             <div className="flex-grow space-y-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Email address
+                  Username
                 </label>
                 <TextField<LoginFormValues>
                   name="username"
