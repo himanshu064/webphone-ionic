@@ -1,4 +1,4 @@
-import { Redirect, Route } from "react-router-dom";
+import { IonRedirect, IonRoute } from "@ionic/react";
 
 import { Login } from "@/pages";
 import { BottomTabs } from "@/components";
@@ -7,16 +7,21 @@ import { AppRoutes } from "@/router/routes";
 const Router = () => {
   return (
     <>
-      <Route exact path="/">
-        <Redirect to={AppRoutes.LoginScreen} />
-      </Route>
-      <Route exact path={AppRoutes.LoginScreen}>
-        <Login />
-      </Route>
+      <IonRoute
+        exact
+        path="/"
+        render={() => <IonRedirect to={AppRoutes.LoginScreen} />}
+      />
+      <IonRoute
+        exact
+        path={AppRoutes.LoginScreen}
+        render={(props) => <Login {...props} />}
+      />
 
-      <Route path={AppRoutes.TabsPath}>
-        <BottomTabs basePath={AppRoutes.TabsPath} />
-      </Route>
+      <IonRoute
+        path={AppRoutes.TabsPath}
+        render={() => <BottomTabs basePath="/tabs" />}
+      />
     </>
   );
 };
