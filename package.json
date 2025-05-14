@@ -18,7 +18,8 @@
     "apk:release": "cd android && gradlew assembleRelease",
     "apk:run": "ionic cap run android --target pixel9p",
     "android": "emulator -avd pixel9p",
-    "run:android": "ionic capacitor run android -l --external"
+    "run:android": "ionic capacitor run android -l --external",
+    "sync": "npx cap sync"
   },
   "dependencies": {
     "@capacitor-community/safe-area": "^7.0.0-alpha.1",
