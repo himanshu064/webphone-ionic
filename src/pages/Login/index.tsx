@@ -39,7 +39,7 @@ export const Login: React.FC = () => {
     try {
       await login(data);
       // Navigate to dashboard or show success message
-      router.push(AppRoutes.CallScreen, "forward", "replace");
+      router.push(AppRoutes.CallScreen, "forward", "push");
     } catch (error) {
       console.error("Login failed", error);
       // Handle login failure (could use a toast notification or inline error message)

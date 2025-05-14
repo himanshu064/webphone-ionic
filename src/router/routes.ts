@@ -3,6 +3,6 @@ export const AppRoutes = {
   TabsPath: "/tabs",
   CallScreen: "/tabs/call",
   ContactsScreen: "/tabs/contacts",
-  RecentCallsScreen: "/tabs/recent-calls",
+  RecentCallsScreen: "/tabs/recents",
   ExternalLogin: "/external-login",
 };

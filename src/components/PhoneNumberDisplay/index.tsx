@@ -39,7 +39,7 @@ export const PhoneNumberDisplay: React.FC<PhoneNumberDisplayProps> = ({
     <div className="flex items-center w-full">
       <div className="flex-1 mr-2 overflow-hidden">
         <div
-          className="text-2xl font-medium text-gray-800 text-right whitespace-nowrap min-h-6 max-w-full overflow-hidden"
+          className="text-4xl font-medium text-gray-800 text-right whitespace-nowrap min-h-6 max-w-full overflow-hidden"
           style={{
             direction: "rtl",
             textAlign: "right",
