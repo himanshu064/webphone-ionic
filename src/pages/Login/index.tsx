@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Button, Page, PasswordField, TextField } from "@/components";
+import { login } from "@/services/auth/auth.service";
 
 const loginSchema = z.object({
   username: z.string().min(1, "Username is required"),
@@ -10,7 +11,7 @@ const loginSchema = z.object({
 });
 
 // Type for our form values
-type LoginFormValues = z.infer<typeof loginSchema>;
+export type LoginFormValues = z.infer<typeof loginSchema>;
 
 export const Login = () => {
   const {
@@ -29,6 +30,16 @@ export const Login = () => {
   const onSubmit = (data: LoginFormValues): void => {
     console.log("Form submitted with:", data);
     // Here you would typically handle authentication logic
+
+    login(data)
+      .then(() => {
+        console.log("Login successful");
+        // Redirect or show success message
+      })
+      .catch((error) => {
+        console.error("Login failed", error);
+        // Handle login failure
+      });
   };
 
   return (
