@@ -1,5 +1,16 @@
-import { IonApp, IonRouterOutlet, setupIonicReact } from "@ionic/react";
+import {
+  IonApp,
+  IonIcon,
+  IonLabel,
+  IonRouterOutlet,
+  IonTabBar,
+  IonTabButton,
+  IonTabs,
+  setupIonicReact,
+} from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
+import { people, keypad, timeOutline } from "ionicons/icons";
+import { Redirect, Route } from "react-router-dom";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -17,28 +28,62 @@ import "@ionic/react/css/text-transformation.css";
 import "@ionic/react/css/flex-utils.css";
 import "@ionic/react/css/display.css";
 
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
-
-/* import '@ionic/react/css/palettes/dark.always.css'; */
-/* import '@ionic/react/css/palettes/dark.class.css'; */
+/* Ionic Dark Mode */
 import "@ionic/react/css/palettes/dark.system.css";
 
 /* Theme variables */
 import "./theme/variables.css";
-import Router from "./router";
+
+import { CallScreen, Contacts, Login, RecentCalls } from "./pages";
 
 setupIonicReact();
+
+const Layout = ({ children }: { children: React.ReactNode }) => {
+  return <IonRouterOutlet>{children}</IonRouterOutlet>;
+};
 
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
-        <Router />
+        {/* Login page route (outside of tabs) */}
+        <Route exact path="/">
+          <Login />
+        </Route>
+
+        {/* Tabbed navigation (only shown after login) */}
+        <Route component={Layout}>
+          <IonTabs>
+            <IonRouterOutlet>
+              <Route exact path="/recents">
+                <RecentCalls />
+              </Route>
+              <Route exact path="/call">
+                <CallScreen />
+              </Route>
+              <Route exact path="/contacts">
+                <Contacts />
+              </Route>
+              <Route exact path="/tabs">
+                <Redirect to="/call" />
+              </Route>
+            </IonRouterOutlet>
+            <IonTabBar slot="bottom">
+              <IonTabButton tab="recents" href="/recents">
+                <IonIcon aria-hidden="true" icon={timeOutline} />
+                <IonLabel>Recent Calls</IonLabel>
+              </IonTabButton>
+              <IonTabButton tab="call" href="/call">
+                <IonIcon aria-hidden="true" icon={keypad} />
+                <IonLabel>Dialer</IonLabel>
+              </IonTabButton>
+              <IonTabButton tab="contacts" href="/contacts">
+                <IonIcon aria-hidden="true" icon={people} />
+                <IonLabel>Contacts</IonLabel>
+              </IonTabButton>
+            </IonTabBar>
+          </IonTabs>
+        </Route>
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>

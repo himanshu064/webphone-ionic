@@ -1,9 +1,11 @@
-import { ExploreContainer, Page } from "@/components";
+import { ExploreContainer } from "@/components";
+import { IonPage } from '@ionic/react';
+
 
 export const Contacts: React.FC = () => {
   return (
-    <Page title="Contacts">
+    <IonPage title="Contacts">
       <ExploreContainer name="Tab 1 page" />
-    </Page>
+    </IonPage>
   );
 };
