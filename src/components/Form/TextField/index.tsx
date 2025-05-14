@@ -1,40 +1,48 @@
-import { IonInput } from "@ionic/react";
-import { Controller, Control } from "react-hook-form";
-import "./index.css";
+import React from "react";
+import {
+  Controller,
+  FieldPath,
+  FieldValues,
+  useFormContext,
+} from "react-hook-form";
+import { TextInput, TextInputProps } from "@/components/Inputs";
 
-interface IProps {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  control: Control<any>; // Replace with the correct type for your control
-  name: string;
-  label: string;
-  placeholder?: string;
-  error?: string;
+export interface TextFieldProps<T extends FieldValues>
+  extends Omit<TextInputProps, "name"> {
+  name: FieldPath<T>;
+  label?: string;
 }
 
-export const TextField = ({
-  control,
+export function TextField<T extends FieldValues>({
   name,
   label,
-  error,
-  placeholder,
-  ...props
-}: IProps) => {
+  ...rest
+}: TextFieldProps<T>) {
+  const {
+    control,
+    formState: { errors },
+  } = useFormContext<T>();
+  const errorMessage = errors[name]?.message as string | undefined;
+
   return (
-    <div className="mb-4">
-      <label className="block text-sm font-medium mb-1">{label}</label>
+    <div className="w-full">
+      {label && (
+        <label className="block text-sm font-medium text-gray-700 mb-2">
+          {label}
+        </label>
+      )}
       <Controller
         control={control}
         name={name}
         render={({ field }) => (
-          <IonInput
+          <TextInput
             {...field}
-            {...props}
-            placeholder={placeholder}
-            className="w-full px-3 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black no-highlight"
+            {...rest}
+            error={errorMessage}
+            id={name.toString()}
           />
         )}
       />
-      {error && <p className="mt-1 text-sm text-red-600">{error}</p>}
     </div>
   );
-};
+}

@@ -12,6 +12,15 @@ const config: CapacitorConfig = {
       resizeOnFullScreen: false,
       backgroundColor: "#ffffff",
     },
+    SafeArea: {
+      enabled: true,
+      customColorsForSystemBars: true,
+      statusBarColor: "#00000000", // Transparent
+      statusBarContent: "dark",
+      navigationBarColor: "#00000000", // Transparent
+      navigationBarContent: "dark",
+      offset: 0,
+    },
   },
 };
 

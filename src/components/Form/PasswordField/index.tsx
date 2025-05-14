@@ -1,58 +1,48 @@
-import { IonIcon, IonInput } from "@ionic/react";
-import { useState } from "react";
-import { Controller, Control } from "react-hook-form";
-import { eyeOutline, eyeOffOutline } from "ionicons/icons";
+import React from "react";
+import {
+  Controller,
+  FieldPath,
+  FieldValues,
+  useFormContext,
+} from "react-hook-form";
+import { TextInputProps, PasswordInput } from "@/components/Inputs";
 
-interface IPasswordFieldProps {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  control: Control<any>;
-  name: string;
-  label: string;
-  error?: string;
+export interface PasswordFieldProps<T extends FieldValues>
+  extends Omit<TextInputProps, "name" | "type"> {
+  name: FieldPath<T>;
+  label?: string;
 }
 
-// Common PasswordField Component
-export const PasswordField = ({
-  control,
+export function PasswordField<T extends FieldValues>({
   name,
   label,
-  error,
-  ...props
-}: IPasswordFieldProps) => {
-  const [showPassword, setShowPassword] = useState<boolean>(false);
-
-  const togglePasswordVisibility = (): void => {
-    setShowPassword((prev) => !prev);
-  };
+  ...rest
+}: PasswordFieldProps<T>) {
+  const {
+    control,
+    formState: { errors },
+  } = useFormContext<T>();
+  const errorMessage = errors[name]?.message as string | undefined;
 
   return (
-    <div className="mb-4">
-      <label className="block text-sm font-medium mb-1">{label}</label>
-      <div className="relative">
-        <Controller
-          control={control}
-          name={name}
-          render={({ field }) => (
-            <IonInput
-              {...field}
-              {...props}
-              type={showPassword ? "text" : "password"}
-              className="w-full px-3 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
-            />
-          )}
-        />
-        <button
-          type="button"
-          className="absolute right-3 top-1/2 transform -translate-y-1/2"
-          onClick={togglePasswordVisibility}
-        >
-          <IonIcon
-            icon={showPassword ? eyeOutline : eyeOffOutline}
-            className="text-gray-500"
+    <div className="w-full">
+      {label && (
+        <label className="block text-sm font-medium text-gray-700 mb-2">
+          {label}
+        </label>
+      )}
+      <Controller
+        control={control}
+        name={name}
+        render={({ field }) => (
+          <PasswordInput
+            {...field}
+            {...rest}
+            error={errorMessage}
+            id={name.toString()}
           />
-        </button>
-      </div>
-      {error && <p className="mt-1 text-sm text-red-600">{error}</p>}
+        )}
+      />
     </div>
   );
-};
+}

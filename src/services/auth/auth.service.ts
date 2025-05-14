@@ -5,7 +5,6 @@ import { LoginFormValues } from "@/pages/Login";
 
 export const login = async (payload: LoginFormValues) => {
   try {
-    alert("Form submitted");
     setLoadingAction(true);
     const { data } = await axiosBackoffice.post<IUser>("/api/auth", payload);
     console.log("login api called", data);
