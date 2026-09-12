@@ -31,4 +31,6 @@ yarn-error.log*
 
 # Discard the build cache
 vite.config.ts.timestamp*
-config.bat
+
+.env*
+!.env.example
