@@ -32,4 +32,3 @@ yarn-error.log*
 vite.config.ts.timestamp*
 
 !.env.example
-config.bat
